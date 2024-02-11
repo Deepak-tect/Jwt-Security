@@ -11,6 +11,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+//2
+
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
@@ -23,3 +25,5 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     }
     
 }
+
+//jab unauthorized person api ko access karne ki kosis karega tab yeh funnction chalega

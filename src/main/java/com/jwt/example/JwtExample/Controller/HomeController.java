@@ -23,7 +23,7 @@ public class HomeController {
     @GetMapping("/user")
     public List<User> getUser(){
         System.out.println("geting user");
-        return this.userService.getUser();
+        return this.userService.getUsers();
     }
 
     @GetMapping("/current-user")

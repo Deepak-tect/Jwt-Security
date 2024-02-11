@@ -2,25 +2,25 @@ package com.jwt.example.JwtExample.Service;
 
 import java.util.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jwt.example.JwtExample.Model.*;
+import com.jwt.example.JwtExample.Model.User;
+import com.jwt.example.JwtExample.Respository.UserRepository;
 
 @Service
 public class UserService {
-    List<User> store = new ArrayList<>();
+    @Autowired
+    private UserRepository userRepository;
 
-
-    public UserService(){
-        store.add(new User(1,"User1", "user1@gmail.com"));
-        store.add(new User(2,"User2", "user2@gmail.com"));
-        store.add(new User(3,"User3", "user3@gmail.com"));
-        store.add(new User(4,"User4", "user4@gmail.com"));
-        store.add(new User(5,"User5", "user5@gmail.com"));
-        store.add(new User(6,"User6", "user6@gmail.com"));
+    public List<User> getUsers(){
+        return this.userRepository.findAll();
     }
 
-    public List<User> getUser(){
-        return this.store;
+    public User createUsers(User user){
+        // user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return this.userRepository.save(user);
     }
+
+
 }
